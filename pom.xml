@@ -18,6 +18,7 @@
         <allure.version>2.21.0</allure.version>
         <testng.version>7.7.1</testng.version>
         <log4j.version>2.20.0</log4j.version>
+        <slf4j-reload4j.version>2.0.7</slf4j-reload4j.version>
         <!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
     </properties>
 
@@ -50,9 +51,10 @@
             <version>${log4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-reload4j</artifactId>
+            <version>${slf4j-reload4j.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
