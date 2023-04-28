@@ -4,11 +4,13 @@ import by.teachmeskills.ddt.DPClass;
 import by.teachmeskills.page.CalendarPage;
 import by.teachmeskills.page.LoginPage;
 import com.codeborne.selenide.Condition;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 
 public class LoginPageTest extends BaseTest {
-
+    private Logger log = LogManager.getLogger(LoginPageTest.class);
     @Test(enabled = true)
     public void checkWithoutParameters() {
         LoginPage loginPage = new LoginPage().openLink().loginAs("", "");
