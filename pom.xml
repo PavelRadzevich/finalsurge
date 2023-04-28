@@ -19,6 +19,11 @@
         <testng.version>7.7.1</testng.version>
         <log4j.version>2.20.0</log4j.version>
         <slf4j-reload4j.version>2.0.7</slf4j-reload4j.version>
+        <allure.version>2.21.0</allure.version>
+        <aspectj.version>1.9.9.1</aspectj.version>
+        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+
+
         <!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
     </properties>
 
@@ -56,6 +61,37 @@
             <version>${slf4j-reload4j.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 </project>
