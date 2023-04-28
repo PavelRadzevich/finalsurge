@@ -8,7 +8,7 @@
         </layout>
     </appender>
     <root>
-        <priority value ="debug"></priority>
+        <priority value ="INFO"></priority>
         <appender-ref ref="MAIN" />
     </root>
 </log4j:configuration>
