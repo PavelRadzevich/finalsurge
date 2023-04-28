@@ -20,20 +20,17 @@
         <log4j.version>2.20.0</log4j.version>
         <slf4j-reload4j.version>2.0.7</slf4j-reload4j.version>
         <allure.version>2.21.0</allure.version>
+        <allure-maven.version>2.12.0</allure-maven.version>
         <aspectj.version>1.9.9.1</aspectj.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
-
-
         <!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide-testng -->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide-testng</artifactId>
@@ -82,6 +79,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <forkCount>3</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <failIfNoTests>true</failIfNoTests>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -97,10 +98,12 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.12.0</version>
+                <version>${allure-maven.version}</version>
                 <configuration>
                     <reportVersion>${allure.version}</reportVersion>
-                    <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip</allureDownloadUrl>
+                    <allureDownloadUrl>
+                        https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip
+                    </allureDownloadUrl>
                 </configuration>
             </plugin>
         </plugins>
