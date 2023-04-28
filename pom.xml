@@ -16,6 +16,7 @@
         <selenide.version>6.13.1</selenide.version>
         <aspectj.version>1.9.9.1</aspectj.version>
         <allure.version>2.21.0</allure.version>
+        <testng.version>7.7.1</testng.version>
 <!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
     </properties>
 
@@ -34,7 +35,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.7.1</version>
+            <version>${testng.version}</version>
             <scope>compile</scope>
         </dependency>
 
