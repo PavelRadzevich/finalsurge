@@ -17,7 +17,8 @@
         <aspectj.version>1.9.9.1</aspectj.version>
         <allure.version>2.21.0</allure.version>
         <testng.version>7.7.1</testng.version>
-<!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
+        <log4j.version>2.20.0</log4j.version>
+        <!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
     </properties>
 
     <dependencies>
@@ -38,7 +39,21 @@
             <version>${testng.version}</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
