@@ -5,3 +5,4 @@
 build/
 .mvn/
 /target
+.allure
