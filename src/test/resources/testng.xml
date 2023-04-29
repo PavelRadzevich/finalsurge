@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Multithreading in different browsers" parallel="tests" thread-count="2">
+<suite name="Multithreading in different browsers" >
     <listeners>
         <listener class-name="by.teachmeskills.util.testng.AnnotationTransformer"/>
         <listener class-name="by.teachmeskills.util.testng.TestListener"/>
+<!--        <listener class-name="by.teachmeskills.util.testng.RetryAnalyzer"/>-->
     </listeners>
-<!--    <suite-files>-->
-<!--        <suite-file path="smoke.xml"/>-->
+    <suite-files>
+        <suite-file path="smoke.xml"/>
 <!--        <suite-file path="regression.xml"/>-->
-<!--    </suite-files>-->
-    <test name="Tests for Chrome">
-        <classes>
-            <class name="by.teachmeskills.LoginPageTest"/>
-            <parameter name="browser" value="chrome"/>
-        </classes>
-    </test>
+    </suite-files>
+<!--    <test name="Tests for Chrome">-->
+<!--        <classes>-->
+<!--            <class name="by.teachmeskills.LoginPageTest"/>-->
+<!--            <parameter name="browser" value="chrome"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
