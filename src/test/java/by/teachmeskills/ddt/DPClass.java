@@ -3,7 +3,7 @@ package by.teachmeskills.ddt;
 import org.testng.annotations.DataProvider;
 
 public class DPClass {
-    @DataProvider(name = "any-login", parallel = true)
+    @DataProvider(name = "any-login", parallel = false)
     public static Object[][] dataProvFunc() {
         return new Object[][]{
                 {"/././.","/./././"},
