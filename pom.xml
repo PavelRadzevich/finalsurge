@@ -23,7 +23,7 @@
         <allure-maven.version>2.12.0</allure-maven.version>
         <aspectj.version>1.9.9.1</aspectj.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
-        <!--        <suiteXmlFile>src/by.teachmeskills.test/resources/testng.xml</suiteXmlFile>-->
+        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
     </properties>
     <dependencies>
         <dependency>
@@ -86,6 +86,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
