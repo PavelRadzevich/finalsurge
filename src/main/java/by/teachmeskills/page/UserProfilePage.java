@@ -19,13 +19,12 @@ public class UserProfilePage extends BasePage {
     public final SelenideElement cityFld = $("input[name='City']");
     public final SelenideElement zipFld = $("input[name='Zip']");
     public final SelenideElement saveChangesBtn = $("input[name='btnSubmit']");
-    public final SelenideElement fixErrorsMsg = $(".alert-error");
-    public final SelenideElement enterValidFNMsg = $(".alert-error").$(withText("First Name"));
-    public final SelenideElement enterValidLNMsg = $(".alert-error").$(withText("Last Name"));
+    public final SelenideElement fixErrorsMsg = $x("//div[@class='alert alert-error']");
 
 
     public UserProfilePage clickEdit() {
         profileEditBtn.shouldBe(Condition.visible).click();
+        profilePictureTitle.shouldBe(Condition.visible.because("profile edit menu not opening"));
         return page(this);
     }
 
@@ -40,7 +39,6 @@ public class UserProfilePage extends BasePage {
     }
 
     public UserProfilePage setUserFirstName(String firstName) {
-        UserProfilePage userProfile = edite();
         editField(firstNameFld, firstName);
         return page(this);
     }
@@ -50,7 +48,6 @@ public class UserProfilePage extends BasePage {
     }
 
     public UserProfilePage setUserLastName(String lastName) {
-        UserProfilePage userProfile = edite();
         editField(lastNameFld, lastName);
         return page(this);
     }
@@ -60,7 +57,6 @@ public class UserProfilePage extends BasePage {
     }
 
     public UserProfilePage setUserBirthDay(String birthDay) {
-        UserProfilePage userProfile = edite();
         editField(birthDayFld, birthDay);
         return page(this);
     }
@@ -70,7 +66,6 @@ public class UserProfilePage extends BasePage {
     }
 
     public UserProfilePage setUserWeight(String weight) {
-        UserProfilePage userProfile = edite();
         editField(weightFld, weight);
         return page(this);
     }
@@ -80,7 +75,6 @@ public class UserProfilePage extends BasePage {
     }
 
     public UserProfilePage setUserCity(String city) {
-        UserProfilePage userProfile = edite();
         editField(cityFld, city);
         return page(this);
     }
@@ -90,7 +84,6 @@ public class UserProfilePage extends BasePage {
     }
 
     public UserProfilePage setUserZip(String zip) {
-        UserProfilePage userProfile = edite();
         editField(zipFld, zip);
         return page(this);
     }
@@ -99,18 +92,10 @@ public class UserProfilePage extends BasePage {
         return zipFld.val();
     }
 
-    private UserProfilePage edite() {
-        UserProfilePage userProfile = new UserProfilePage().clickEdit();
-        userProfile.clickEdit();
-        profilePictureTitle.shouldBe(Condition.visible);
-        return userProfile;
-    }
-
-    private void editField(SelenideElement element, String value) {
-        UserProfilePage userProfile = edite();
+    private UserProfilePage editField(SelenideElement element, String value) {
         profilePictureTitle.shouldBe(Condition.visible);
         element.shouldBe(Condition.visible).clear();
         element.shouldBe(Condition.visible).val(value);
-        userProfile.clickSave();
+        return page(this);
     }
 }
