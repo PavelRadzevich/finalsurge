@@ -2,6 +2,7 @@ package by.teachmeskills;
 
 import by.teachmeskills.util.PropertiesLoader;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.apache.commons.lang3.StringUtils;
@@ -27,9 +28,12 @@ public class BaseTest {
         } else {
             Configuration.browser = "chrome";
         }
+        Selenide.clearBrowserCookies();
     }
     @AfterMethod
     void tearDown(){
         open(properties.getProperty("LOGOUT_PAGE"));
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
     }
 }
