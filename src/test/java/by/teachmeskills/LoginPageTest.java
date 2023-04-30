@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseTest {
     @Test(invocationCount = 1,
             groups = {"negative"})
     public void checkWithoutParameters() {
-        LoginPage loginPage = new LoginPage().openLink().loginAs("", "");
+        LoginPage loginPage = new LoginPage().loginAs("", "");
         loginPage.loginErrMsg
                 .shouldBe(Condition.visible
                         .because("no error message"))
@@ -32,7 +32,7 @@ public class LoginPageTest extends BaseTest {
             invocationCount = 1)
     public void checkWithAnyParameters(String login, String pass) {
         log.info("Run checkAnyValues with {}, {}", login, pass);
-        LoginPage loginPage = new LoginPage().openLink().loginAs(login, pass);
+        LoginPage loginPage = new LoginPage().loginAs(login, pass);
         loginPage.loginErrMsg
                 .shouldBe(Condition.visible
                         .because("no error message"))
@@ -43,7 +43,7 @@ public class LoginPageTest extends BaseTest {
     @Test(invocationCount = 1,
             groups = {"regression"})
     public void checkValidLoginNoPass() {
-        LoginPage loginPage = new LoginPage().openLink().loginValidLoginNoPassword();
+        LoginPage loginPage = new LoginPage().loginValidLoginNoPassword();
         loginPage.passErrMsg
                 .shouldBe((Condition.visible)
                         .because("no error message"))
@@ -54,7 +54,7 @@ public class LoginPageTest extends BaseTest {
     @Test(invocationCount = 1,
             groups = {"regression"})
     public void checkValidLoginWithWrongPass() {
-        LoginPage loginPage = new LoginPage().openLink().loginValidLoginWrongPassword();
+        LoginPage loginPage = new LoginPage().loginValidLoginWrongPassword();
         loginPage.invalidCredErrMsg
                 .shouldBe(Condition.visible
                         .because("no error message"))
@@ -65,7 +65,7 @@ public class LoginPageTest extends BaseTest {
     @Test(invocationCount = 1,
             groups = {"negative"})
     public void checkUserLock() {
-        LoginPage loginPage = new LoginPage().openLink().loginWithMultipleAttempts();
+        LoginPage loginPage = new LoginPage().loginWithMultipleAttempts();
         loginPage.invalidCredErrMsg
                 .shouldHave(Condition.text("You have made too many login attempts and have been locked out of your account. Please try again later.")
                         .because("error text is invalid"));
@@ -74,7 +74,7 @@ public class LoginPageTest extends BaseTest {
     @Test(invocationCount = 1,
             groups = {"smoke"})
     public void loginValidUser() {
-        CalendarPage calPage = new LoginPage().openLink().loginValidUser();
+        CalendarPage calPage = new LoginPage().loginValidUser();
         calPage.isOpened.shouldBe(Condition.visible);
     }
 }

@@ -13,7 +13,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"negative"})
     public void checkFieldsFirsLastWithoutValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserFirstName("")
@@ -27,7 +26,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"negative"})
     public void checkFieldFirsWithoutValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserFirstName("").clickSave();
@@ -38,7 +36,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"negative"})
     public void checkFieldLastWithoutValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserLastName("").clickSave();
@@ -49,7 +46,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"smoke"})
     public void checkFieldFirstWithValidValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserFirstName("First").clickSave();
@@ -61,7 +57,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"smoke"})
     public void checkFieldLastWithValidValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserLastName("777").clickSave();
@@ -73,7 +68,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"smoke"})
     public void checkFieldBirthdayWithValidValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserBirthDay("12/20/2001").clickSave();
@@ -85,7 +79,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"negative"})
     public void checkFieldBirthdayWithNotValidValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserBirthDay("99/99/0003").clickSave();
@@ -96,7 +89,6 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"smoke"})
     public void checkFieldWeightWithValidValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserWeight("80").clickSave();
@@ -108,12 +100,10 @@ public class UserProfilePageTest extends BaseTest {
     @Test(groups = {"negative"})
     public void checkFieldWeightWithNotValidValue() {
         UserProfilePage userProfile = new LoginPage()
-                .openLink()
                 .loginValidUser()
                 .goUserProfile();
         userProfile.clickEdit().setUserWeight("0").clickSave();
         userProfile.fixErrorsMsg.shouldBe(Condition.text(" *Weight cannot be less than 1.00.")
                                                    .because("no error message"));
     }
-
 }
