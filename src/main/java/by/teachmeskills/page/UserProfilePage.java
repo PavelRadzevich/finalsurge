@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class UserProfilePage extends BasePage {
 
     public final SelenideElement userProfileTitle = $("");
-    public final SelenideElement profileEditBtn = $(".dropdown-toggle").$(withText("Edit Profile"));
+    public final SelenideElement profileEditBtn = $x("//span[normalize-space()='Edit Profile']");
     public final SelenideElement profilePictureTitle = $x("//label[text()='Profile Picture']");
     public final SelenideElement profileEditCancelBtn = $("span.dropdown-toggle").$(withText("Cancel"));
     public final SelenideElement firstNameFld = $("input[name='fname']");
@@ -20,21 +20,21 @@ public class UserProfilePage extends BasePage {
     public final SelenideElement zipFld = $("input[name='Zip']");
     public final SelenideElement saveChangesBtn = $("input[name='btnSubmit']");
     public final SelenideElement fixErrorsMsg = $(".alert-error");
-    public final SelenideElement enterValidLNMsg = $(".alert-error").$(withText("First Name"));
-    public final SelenideElement enterValidFNMsg = $(".alert-error").$(withText("Last Name"));
+    public final SelenideElement enterValidFNMsg = $(".alert-error").$(withText("First Name"));
+    public final SelenideElement enterValidLNMsg = $(".alert-error").$(withText("Last Name"));
 
 
-    private UserProfilePage clickEdit() {
+    public UserProfilePage clickEdit() {
         profileEditBtn.shouldBe(Condition.visible).click();
         return page(this);
     }
 
-    private UserProfilePage clickSave() {
+    public UserProfilePage clickSave() {
         saveChangesBtn.shouldBe(Condition.visible).click();
         return page(this);
     }
 
-    private UserProfilePage clickCancel() {
+    public UserProfilePage clickCancel() {
         profileEditCancelBtn.shouldBe(Condition.visible).click();
         return page(this);
     }
