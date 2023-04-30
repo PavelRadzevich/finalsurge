@@ -9,10 +9,10 @@ public class CalendarPage extends BasePage {
     public final SelenideElement isOpened = $x("//*[text()='Training Calendar']");
     public final SelenideElement settingsLnk = $(".unstyled a[href='UserProfile.cshtml']");
 
-    public UserProfilePage goUserProfile(){
+    public UserProfilePage goUserProfile() {
         isOpened.shouldBe(Condition.visible);
         settingsLnk.shouldHave(Condition.text("Settings")).click();
-        return page(UserProfilePage.class);
+        return  new UserProfilePage();
     }
 
 }
