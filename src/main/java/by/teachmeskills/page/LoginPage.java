@@ -21,6 +21,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage() {
         log.info("Open page {}", properties.getProperty("LOGIN_PAGE"));
+        log.info("URL : {}", url().toString());
         open(properties.getProperty("LOGIN_PAGE"));
     }
 
@@ -34,11 +35,11 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage loginWithMultipleAttempts() {
-        LoginPage loginPage = new LoginPage().loginAs(properties.getProperty("ACCOUNT_LOGIN_2"), INCORRECT_PASS);
+        this.loginAs(properties.getProperty("ACCOUNT_LOGIN_2"), INCORRECT_PASS);
         int attempt = ATTEMPT_COUNT;
         do {
             attempt--;
-            loginPage.passField.val(INCORRECT_PASS);
+            this.passField.val(INCORRECT_PASS);
             loginBtn.click();
         } while (attempt > 0);
         log.info("URL : {}", url().toString());
@@ -46,19 +47,19 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage loginValidLoginNoPassword() {
-        LoginPage loginPage = new LoginPage().loginAs(properties.getProperty("ACCOUNT_LOGIN"), "");
+        this.loginAs(properties.getProperty("ACCOUNT_LOGIN"), "");
         log.info("URL : {}", url().toString());
         return this;
     }
 
     public LoginPage loginValidLoginWrongPassword() {
-        LoginPage loginPage = new LoginPage().loginAs(properties.getProperty("ACCOUNT_LOGIN"), INCORRECT_PASS);
+        this.loginAs(properties.getProperty("ACCOUNT_LOGIN"), INCORRECT_PASS);
         log.info("URL : {}", url().toString());
         return this;
     }
 
     public CalendarPage loginValidUser() {
-        LoginPage loginPage = new LoginPage().loginAs(properties.getProperty("ACCOUNT_LOGIN"),
+        this.loginAs(properties.getProperty("ACCOUNT_LOGIN"),
                 properties.getProperty("ACCOUNT_PASSWORD"));
         log.info("URL : {}", url().toString());
         return new CalendarPage();
