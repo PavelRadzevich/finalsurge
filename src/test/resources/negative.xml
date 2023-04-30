@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Negative Tests" parallel="methods" thread-count="1">
+    <test name="Tests for Chrome">
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="by.teachmeskills.LoginPageTest"/>
+            <class name="by.teachmeskills.UserProfilePageTest"/>
+            <parameter name="browser" value="chrome"/>
+        </classes>
+    </test>
+    <test name="Tests for Firefox">
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="by.teachmeskills.LoginPageTest"/>
+            <class name="by.teachmeskills.UserProfilePageTest"/>
+            <parameter name="browser" value="firefox"/>
+        </classes>
+    </test>
+</suite>
