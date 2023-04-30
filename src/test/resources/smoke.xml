@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke Tests" parallel="methods" thread-count="2">
-    <listeners>
-        <listener class-name="by.teachmeskills.util.testng.AnnotationTransformer"/>
-        <listener class-name="by.teachmeskills.util.testng.TestListener"/>
-    </listeners>
-<!--    <test name="Tests for Chrome">-->
-<!--        <classes>-->
-<!--            <class name="by.teachmeskills.LoginPageTest"/>-->
-<!--            <parameter name="browser" value="chrome"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-    <test name="Tests for Firefox">
+<suite name="Smoke Tests" parallel="methods" thread-count="1">
+    <test name="Tests for Chrome">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
         <classes>
             <class name="by.teachmeskills.LoginPageTest"/>
+            <class name="by.teachmeskills.UserProfilePageTest"/>
+            <parameter name="browser" value="chrome"/>
+        </classes>
+    </test>
+    <test name="Tests for Firefox">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="by.teachmeskills.LoginPageTest"/>
+            <class name="by.teachmeskills.UserProfilePageTest"/>
             <parameter name="browser" value="firefox"/>
         </classes>
     </test>
