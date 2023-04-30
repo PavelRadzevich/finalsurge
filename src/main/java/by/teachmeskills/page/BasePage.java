@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.page;
 public class BasePage {
     Properties properties = PropertiesLoader.loadProperties();
 
-
     public LogoutPage logout() {
         return page(open(properties.getProperty("LOGOUT_PAGE"),
                 LogoutPage.class));
