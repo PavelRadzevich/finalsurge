@@ -17,7 +17,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserFirstName("")
                    .setUserLastName("").clickSave();
         userProfile.fixErrorsMsg.shouldBe(Condition.text(" *Please enter a value for First Name.")
@@ -31,7 +31,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserFirstName("").clickSave();
         userProfile.fixErrorsMsg.shouldBe(Condition.text(" *Please enter a value for First Name.")
                                                    .because("no error message"));
@@ -42,7 +42,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserLastName("").clickSave();
         userProfile.fixErrorsMsg.shouldBe(Condition.text(" *Please enter a value for Last Name.")
                                                    .because("no error message"));
@@ -53,7 +53,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserFirstName("First").clickSave();
         userProfile.profileNameFld
                 .shouldHave(Condition.innerText("First")
@@ -65,7 +65,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserLastName("777").clickSave();
         userProfile.profileNameFld
                 .shouldHave(Condition.innerText("777")
@@ -77,7 +77,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserBirthDay("12/20/2001").clickSave();
         userProfile.profileBirthdayFld
                 .shouldHave(Condition.innerText("12/20/2001")
@@ -89,7 +89,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserBirthDay("99/99/0003").clickSave();
         userProfile.fixErrorsMsg.shouldBe(Condition.text(" *Please enter a valid Birthday.")
                                                    .because("no error message"));
@@ -100,7 +100,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserWeight("80").clickSave();
         userProfile.profileWeightFld
                 .shouldHave(Condition.innerText("80")
@@ -112,7 +112,7 @@ public class UserProfilePageTest extends BaseTest {
         UserProfilePage userProfile = new LoginPage()
                 .loginValidUser()
                 .goUserProfile();
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         userProfile.clickEdit().setUserWeight("0").clickSave();
         userProfile.fixErrorsMsg.shouldBe(Condition.text(" *Weight cannot be less than 1.00.")
                                                    .because("no error message"));

@@ -42,26 +42,26 @@ public class LoginPage extends BasePage {
             this.passField.val(INCORRECT_PASS);
             loginBtn.click();
         } while (attempt > 0);
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         return this;
     }
 
     public LoginPage loginValidLoginNoPassword() {
         this.loginAs(properties.getProperty("ACCOUNT_LOGIN"), "");
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         return this;
     }
 
     public LoginPage loginValidLoginWrongPassword() {
         this.loginAs(properties.getProperty("ACCOUNT_LOGIN"), INCORRECT_PASS);
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         return this;
     }
 
     public CalendarPage loginValidUser() {
         this.loginAs(properties.getProperty("ACCOUNT_LOGIN"),
                 properties.getProperty("ACCOUNT_PASSWORD"));
-        log.info("URL : {}", url().toString());
+        log.info("URL : {}", url());
         return new CalendarPage();
     }
 }

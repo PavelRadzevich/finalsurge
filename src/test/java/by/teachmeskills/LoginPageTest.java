@@ -8,6 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Condition.*;
+
 
 public class LoginPageTest extends BaseTest {
     private Logger log = LogManager.getLogger(LoginPageTest.class);
@@ -17,14 +19,14 @@ public class LoginPageTest extends BaseTest {
     public void checkWithoutParameters() {
         LoginPage loginPage = new LoginPage().loginAs("", "");
         loginPage.loginErrMsg
-                .shouldBe(Condition.visible
+                .shouldBe(visible
                         .because("no error message"))
-                .shouldHave(Condition.text("Please enter your e-mail address.")
+                .shouldHave(text("Please enter your e-mail address.")
                         .because("error text is invalid"));
         loginPage.passErrMsg
-                .shouldBe(Condition.visible
+                .shouldBe(visible
                         .because("no error message"))
-                .shouldHave(Condition.text("Please enter a password."));
+                .shouldHave(text("Please enter a password."));
     }
 
     @Test(dataProvider = "any-login", dataProviderClass = DPClass.class,
@@ -34,9 +36,9 @@ public class LoginPageTest extends BaseTest {
         log.info("Run checkAnyValues with {}, {}", login, pass);
         LoginPage loginPage = new LoginPage().loginAs(login, pass);
         loginPage.loginErrMsg
-                .shouldBe(Condition.visible
+                .shouldBe(visible
                         .because("no error message"))
-                .shouldHave(Condition.text("Please enter a valid email address.")
+                .shouldHave(text("Please enter a valid email address.")
                         .because("error text is invalid"));
     }
 
@@ -45,9 +47,9 @@ public class LoginPageTest extends BaseTest {
     public void checkValidLoginNoPass() {
         LoginPage loginPage = new LoginPage().loginValidLoginNoPassword();
         loginPage.passErrMsg
-                .shouldBe((Condition.visible)
+                .shouldBe((visible)
                         .because("no error message"))
-                .shouldHave(Condition.text("Please enter a password.")
+                .shouldHave(text("Please enter a password.")
                         .because("error text is invalid"));
     }
 
@@ -56,9 +58,9 @@ public class LoginPageTest extends BaseTest {
     public void checkValidLoginWithWrongPass() {
         LoginPage loginPage = new LoginPage().loginValidLoginWrongPassword();
         loginPage.invalidCredErrMsg
-                .shouldBe(Condition.visible
+                .shouldBe(visible
                         .because("no error message"))
-                .shouldHave(Condition.text("Invalid login credentials. Please try again.")
+                .shouldHave(text("Invalid login credentials. Please try again.")
                         .because("error text is invalid"));
     }
 
@@ -67,7 +69,7 @@ public class LoginPageTest extends BaseTest {
     public void checkUserLock() {
         LoginPage loginPage = new LoginPage().loginWithMultipleAttempts();
         loginPage.invalidCredErrMsg
-                .shouldHave(Condition.text("You have made too many login attempts and have been locked out of your account. Please try again later.")
+                .shouldHave(text("You have made too many login attempts and have been locked out of your account. Please try again later.")
                         .because("error text is invalid"));
     }
 
@@ -75,6 +77,6 @@ public class LoginPageTest extends BaseTest {
             groups = {"smoke"})
     public void loginValidUser() {
         CalendarPage calPage = new LoginPage().loginValidUser();
-        calPage.isOpened.shouldBe(Condition.visible);
+        calPage.isOpened.shouldBe(visible);
     }
 }

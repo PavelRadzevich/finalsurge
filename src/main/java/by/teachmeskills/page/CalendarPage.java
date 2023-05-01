@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CalendarPage extends BasePage {
@@ -12,8 +13,8 @@ public class CalendarPage extends BasePage {
     public final SelenideElement settingsLnk = $(".unstyled a[href='UserProfile.cshtml']");
 
     public UserProfilePage goUserProfile() {
-        isOpened.shouldBe(Condition.visible);
-        settingsLnk.shouldHave(Condition.text("Settings"), Duration.ofSeconds(10)).click();
+        isOpened.shouldBe(visible);
+        settingsLnk.shouldHave(text("Settings"), Duration.ofSeconds(10)).click();
         return  new UserProfilePage();
     }
 }

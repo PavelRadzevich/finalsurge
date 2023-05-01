@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -32,18 +33,18 @@ public class UserProfilePage extends BasePage {
     private Logger log = LogManager.getLogger(UserProfilePage.class);
 
     public UserProfilePage clickEdit() {
-        profileEditBtn.shouldBe(Condition.visible).click();
-        profilePictureTitle.shouldBe(Condition.visible.because("profile edit menu not opening"));
+        profileEditBtn.shouldBe(visible).click();
+        profilePictureTitle.shouldBe(visible.because("profile edit menu not opening"));
         return this;
     }
 
     public UserProfilePage clickSave() {
-        saveChangesBtn.shouldBe(Condition.visible).click();
+        saveChangesBtn.shouldBe(visible).click();
         return this;
     }
 
     public UserProfilePage clickCancel() {
-        profileEditCancelBtn.shouldBe(Condition.visible).click();
+        profileEditCancelBtn.shouldBe(visible).click();
         return this;
     }
 
@@ -102,9 +103,9 @@ public class UserProfilePage extends BasePage {
     }
 
     private void editField(SelenideElement element, String value) {
-        profilePictureTitle.shouldBe(Condition.visible);
-        element.shouldBe(Condition.visible).clear();
-        element.shouldBe(Condition.visible).val(value);
+        profilePictureTitle.shouldBe(visible);
+        element.shouldBe(visible).clear();
+        element.shouldBe(visible).val(value);
         log.info("Edit element {}, value {}",element, value);
     }
 }
