@@ -16,5 +16,4 @@ public class CalendarPage extends BasePage {
         settingsLnk.shouldHave(Condition.text("Settings"), Duration.ofSeconds(10)).click();
         return  new UserProfilePage();
     }
-
 }
