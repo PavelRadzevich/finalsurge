@@ -30,7 +30,7 @@ public class BaseTest {
         }
         Selenide.clearBrowserCookies();
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     void tearDown(){
         open(properties.getProperty("LOGOUT_PAGE"));
         Selenide.clearBrowserCookies();

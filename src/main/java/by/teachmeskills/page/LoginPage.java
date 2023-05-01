@@ -21,8 +21,8 @@ public class LoginPage extends BasePage {
 
     public LoginPage() {
         log.info("Open page {}", properties.getProperty("LOGIN_PAGE"));
-        log.info("URL : {}", url().toString());
         open(properties.getProperty("LOGIN_PAGE"));
+        log.info("URL : {}", url().toString());
     }
 
     public LoginPage loginAs(String login, String pass) {
