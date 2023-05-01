@@ -10,7 +10,7 @@ import org.testng.ITestResult;
 import java.util.concurrent.TimeUnit;
 
 public class TestListener implements ITestListener {
-    private Logger log = LogManager.getLogger(LoginPage.class);
+    private final Logger log = LogManager.getLogger(LoginPage.class);
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -30,22 +30,17 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-
     }
 
     @Override
     public void onStart(ITestContext iTestContext) {
-
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-
     }
 
     private long getExecutionTime(ITestResult result) {
         return TimeUnit.MILLISECONDS.toSeconds(result.getEndMillis() - result.getStartMillis());
     }
-
-
 }
