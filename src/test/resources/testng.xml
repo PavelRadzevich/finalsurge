@@ -7,8 +7,8 @@
 <!--        <listener class-name="by.teachmeskills.util.testng.RetryAnalyzer"/>-->
     </listeners>
     <suite-files>
-<!--        <suite-file path="smoke.xml"/>-->
+        <suite-file path="smoke.xml"/>
         <suite-file path="negative.xml"/>
-<!--        <suite-file path="regression.xml"/>-->
+        <suite-file path="regression.xml"/>
     </suite-files>
 </suite>

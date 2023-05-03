@@ -9,6 +9,7 @@
         </groups>
         <classes>
             <class name="by.teachmeskills.LoginPageTest"/>
+            <class name="by.teachmeskills.CalendarPageTest"/>
             <class name="by.teachmeskills.UserProfilePageTest"/>
             <parameter name="browser" value="chrome"/>
         </classes>
@@ -21,6 +22,7 @@
         </groups>
         <classes>
             <class name="by.teachmeskills.LoginPageTest"/>
+            <class name="by.teachmeskills.CalendarPageTest"/>
             <class name="by.teachmeskills.UserProfilePageTest"/>
             <parameter name="browser" value="firefox"/>
         </classes>
