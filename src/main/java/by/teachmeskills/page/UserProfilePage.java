@@ -2,6 +2,7 @@ package by.teachmeskills.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -32,12 +33,13 @@ public class UserProfilePage extends BasePage {
 
     private Logger log = LogManager.getLogger(UserProfilePage.class);
 
+    @Step("Select the menu item Edit profile")
     public UserProfilePage clickEdit() {
         profileEditBtn.shouldBe(visible).click();
         profilePictureTitle.shouldBe(visible.because("profile edit menu not opening"));
         return this;
     }
-
+    @Step("Select the menu item Save profile")
     public UserProfilePage clickSave() {
         saveChangesBtn.shouldBe(visible).click();
         return this;
@@ -47,7 +49,7 @@ public class UserProfilePage extends BasePage {
         profileEditCancelBtn.shouldBe(visible).click();
         return this;
     }
-
+    @Step("Paste a value into the First Name field")
     public UserProfilePage setUserFirstName(String firstName) {
         editField(firstNameEditFld, firstName);
         return this;
@@ -57,6 +59,7 @@ public class UserProfilePage extends BasePage {
         return firstNameEditFld.val();
     }
 
+    @Step("Paste a value into the Last Name field")
     public UserProfilePage setUserLastName(String lastName) {
         editField(lastNameEditFld, lastName);
         return this;
@@ -66,6 +69,7 @@ public class UserProfilePage extends BasePage {
         return lastNameEditFld.val();
     }
 
+    @Step("Paste a value into the Birth Day field")
     public UserProfilePage setUserBirthDay(String birthDay) {
         editField(birthDayEditFld, birthDay);
         return this;
@@ -75,6 +79,7 @@ public class UserProfilePage extends BasePage {
         return birthDayEditFld.val();
     }
 
+    @Step("Paste a value into the Weight field")
     public UserProfilePage setUserWeight(String weight) {
         editField(weightEditFld, weight);
         return this;
@@ -102,6 +107,7 @@ public class UserProfilePage extends BasePage {
         return zipEditFld.val();
     }
 
+    @Step("Edit field")
     private void editField(SelenideElement element, String value) {
         profilePictureTitle.shouldBe(visible);
         element.shouldBe(visible).clear();
