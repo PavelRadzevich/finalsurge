@@ -101,7 +101,7 @@ public class UserProfilePageTest extends BaseTest {
                 .loginValidUser()
                 .goUserProfile();
         log.info("URL : {}", url());
-        userProfile.clickEdit().setUserWeight("80").clickSave();
+        userProfile.clickEdit().setUserWeight("81").clickSave();
         userProfile.profileWeightFld
                 .shouldHave(Condition.innerText("80")
                                      .because("The 'Weight' field doesn't contain the expected value."));
