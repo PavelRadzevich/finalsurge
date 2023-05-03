@@ -70,6 +70,12 @@
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allure.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
     <build>
@@ -79,7 +85,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <forkCount>1</forkCount>
+                    <forkCount>4</forkCount>
                     <reuseForks>true</reuseForks>
                     <testFailureIgnore>true</testFailureIgnore>
                     <failIfNoTests>true</failIfNoTests>
