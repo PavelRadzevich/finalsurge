@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class CalendarPageTest extends BaseTest {
 
     @Test(groups = {"smoke", "workOutRun"})
-    public void test() {
+    public void addUserWorkoutRun() {
         CalendarPage calPage = new LoginPage().loginValidUser();
         calPage.checkSunday();
         calPage.addWorkOutRun().saveWorkOut();
